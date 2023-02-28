@@ -1,11 +1,14 @@
 name: CI - Web Frontend
 
 on:
-  pull_request:
-    paths:
-      - ./**
-      - frontend-test/**
-      - .github/workflows/web-frontend-ci.yml
+  on:
+  pull_request_target:
+    branches: [ main ]
+      paths:
+        - ./**
+        - frontend-test/**
+        - .github/workflows/web-frontend-ci.yml
+  # pull_request:
 
 jobs:
   test:
