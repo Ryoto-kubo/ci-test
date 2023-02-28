@@ -55,7 +55,8 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          comment-author: 50362462
+          comment-author: "github-actions[bot]"
+          # comment-author: 50362462
           body-includes: ":books: Storybook :books:"
 
       - name: Get datetime for now
@@ -67,7 +68,7 @@ jobs:
       - name: Create or update comment
         uses: peter-evans/create-or-update-comment@v2
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          # token: ${{ secrets.PAT_TOKEN }}
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
