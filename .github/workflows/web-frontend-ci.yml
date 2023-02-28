@@ -65,15 +65,15 @@ jobs:
         env:
           TZ: Asia/Tokyo
 
-      - name: Create or update comment
+      - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
           # token: ${{ secrets.PAT_TOKEN }}
-          comment-id: ${{ steps.fc.outputs.comment-id }}
+          # comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Visit the :books: **Storybook** :books: for this PR (updated for commit ${{ github.event.pull_request.head.sha }}):
             <${{ steps.storybook-url.outputs.value }}>
             <sub>Build URL: ${{ steps.chromatic.outputs.buildUrl }}</sub>
             <sub>(:fire: updated at ${{ steps.datetime.outputs.value }})</sub>
-          edit-mode: replace
+          reactions: "+1"
